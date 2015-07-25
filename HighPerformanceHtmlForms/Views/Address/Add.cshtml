@@ -1,0 +1,40 @@
+﻿@model AddressViewModel
+
+@{
+    ViewBag.Title = "Add Addresses";
+}
+
+<h2>Add Addresses</h2>
+@using (Html.BeginForm("Add", "Address"))
+{
+    <div>
+        @Html.HiddenFor(m => m.PersonId)
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City)
+        @Html.LabelFor(m => m.State)
+        @Html.TextBoxFor(m => m.State)
+        <button>Submit</button>
+    </div>
+    <div class="links">
+        @Html.ActionLink("Done", "PersonEdit", "Person")
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>City</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var address in Model.Addresses)
+            {
+                <tr>
+                    <td>@address.Id</td>
+                    <td>@address.City</td>
+                    <td>@address.State</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

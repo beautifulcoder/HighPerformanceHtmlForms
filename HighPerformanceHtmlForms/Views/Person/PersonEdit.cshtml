@@ -1,0 +1,22 @@
+﻿@model PersonViewModel
+
+@{
+    ViewBag.Title = "Edit Person";
+}
+
+<h2>Edit Person</h2>
+@using (Html.BeginForm("PersonEdit", "Person"))
+{
+    <div>
+        @Html.HiddenFor(m => m.Id)
+        <label>Name:</label>
+        <span>@Html.TextBoxFor(m => m.Name)</span>
+    </div>
+    <div class="links">
+        @Html.ActionLink("Friend", "FriendEdit", new { id = Model.Id })
+        @Html.ActionLink("Addresses", "Add", "Address", new { id = Model.Id }, null)
+    </div>
+    <div>
+        <button>Submit</button>
+    </div>
+}

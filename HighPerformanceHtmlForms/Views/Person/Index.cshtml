@@ -1,0 +1,33 @@
+﻿@model PersonViewModel
+
+@{
+    ViewBag.Title = "Person Details";
+}
+
+<h2>Person Details</h2>
+<h3>Person</h3>
+<p>
+    <label>Id:</label>
+    <span>@Model.Id</span><br />
+    <label>Name:</label>
+    <span>@Model.Name</span>
+</p>
+<h3>Friend</h3>
+<p>
+    <label>Id:</label>
+    <span>@Model.Friend.Id</span><br />
+    <label>Name:</label>
+    <span>@Model.Friend.Name</span>
+</p>
+<h3>Addresses</h3>
+@foreach (var address in Model.Addresses)
+{
+    <p>
+        <label>Id:</label>
+        <span>@address.Id</span><br />
+        <label>City:</label>
+        <span>@address.City</span><br />
+        <label>State:</label>
+        <span>@address.State</span>
+    </p>
+}
